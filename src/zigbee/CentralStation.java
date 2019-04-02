@@ -12,7 +12,7 @@ public class CentralStation {
 	/* Constants */
 
 	// TODO Replace with the serial port where your receiver module is connected.
-	private static final String PORT = "ttyUSB0";
+	private static final String PORT = "/dev/ttyUSB0";
 	// TODO Replace with the baud rate of you receiver module.
 	private static final int BAUD_RATE = 9600;
 
