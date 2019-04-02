@@ -1,7 +1,9 @@
 package zigbee;
 
 public class Launcher {
+
 	public static void main(String[] args) {
-		System.out.println("toto");
+		CentralStation centralStation = new CentralStation();
+		centralStation.initialize();
 	}
 }
