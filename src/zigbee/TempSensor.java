@@ -1,5 +1,5 @@
 package zigbee;
 
-public class TempSensor extends Sensor {
+public class TempSensor extends Probe {
 
 }

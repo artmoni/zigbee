@@ -1,13 +1,12 @@
 package zigbee;
 
 import com.rapplogic.xbee.api.ApiId;
-import com.rapplogic.xbee.api.XBee;
 import com.rapplogic.xbee.api.XBeeException;
 import com.rapplogic.xbee.api.XBeeResponse;
 import com.rapplogic.xbee.api.XBeeTimeoutException;
 import com.rapplogic.xbee.api.zigbee.ZNetRxIoSampleResponse;
 
-public class LuxSensor extends Sensor {
+public class LuxSensor extends Probe {
 
 	/* Constants */
 
@@ -15,8 +14,6 @@ public class LuxSensor extends Sensor {
 	private static final String PORT = "ttyUSB0";
 	// TODO Replace with the baud rate of you receiver module.
 	private static final int BAUD_RATE = 9600;
-
-	XBee xbee = new XBee();
 
 	public LuxSensor() {
 
