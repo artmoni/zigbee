@@ -46,9 +46,19 @@ public class Probe {
 		return samples.isD0On();
 
 	}
-	
+
 	public int voltReceived() {
 		return samples.getAnalog0();
+	}
+
+	public int getLumens() {
+		/*
+		 * RL=500/lux V0=5*(RL/(RL+R)) V0=LDR_value*ADC_value lux=(250/V0)-50
+		 */
+		if (voltReceived() != 0) {
+			return (250 / voltReceived()) - 50;
+		}
+		return 0;
 	}
 
 }

@@ -45,7 +45,7 @@ public class CentralStation {
 
 //						System.out.println("Received a sample from " + ioSample.getAnalog0());
 //						
-						System.out.println("Analog D0 (pin 20) 10-bit reading is " + currentProbe.voltReceived());
+						System.out.println("Analog D0 (pin 20) 10-bit reading is " + currentProbe.getLumens());
 //						System.out.println("Digital D0 (pin 11) is " + (currentProbe.isButtonPressed() ? "on" : "off"));
 					}
 				} catch (XBeeTimeoutException ex) {
