@@ -6,19 +6,16 @@ import com.rapplogic.xbee.api.zigbee.ZNetRxIoSampleResponse;
 public class TempSensor extends Sensor {
 	public int temp;
 
-	public TempSensor(XBeeAddress64 address64R, String nameProbeR, ZNetRxIoSampleResponse pinProbeR)
-	{
-		super(address64R, nameProbeR, pinProbeR);
+	public TempSensor(XBeeAddress64 address64R, String nameProbeR, ZNetRxIoSampleResponse samplesR) {
+		super(address64R, nameProbeR, samplesR);
 		temp = 0;
 	}
-	
-	public int getTemp()
-	{
+
+	public int getTemp() {
 		return temp;
 	}
-	
-	public void setTemp(int tempR)
-	{
+
+	public void setTemp(int tempR) {
 		temp = tempR;
 	}
 }

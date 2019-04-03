@@ -7,18 +7,18 @@ import com.rapplogic.xbee.api.zigbee.ZNetRxIoSampleResponse;
 public class Probe {
 	private XBeeAddress64 address64;
 	private String nameProbe;
-	private ZNetRxIoSampleResponse pinProbe;
+	private ZNetRxIoSampleResponse samples;
 
 	XBee xbee = new XBee();
 
-	public Probe(XBeeAddress64 address64R, String nameProbeR, ZNetRxIoSampleResponse pinProbeR) {
+	public Probe(XBeeAddress64 address64R, String nameProbeR, ZNetRxIoSampleResponse samplesR) {
 		address64 = address64R;
 		nameProbe = nameProbeR;
-		pinProbe = pinProbeR;
+		samples = samplesR;
 	}
 
 	public ZNetRxIoSampleResponse getPinProbe() {
-		return pinProbe;
+		return samples;
 	}
 
 	public String getNameProbe() {
@@ -35,6 +35,16 @@ public class Probe {
 
 	public void setAddress64(XBeeAddress64 address64) {
 		this.address64 = address64;
+	}
+
+	public void update(ZNetRxIoSampleResponse ioSample) {
+		samples = ioSample;
+
+	}
+
+	public boolean isButtonPressed() {
+		return samples.isD0On();
+
 	}
 
 }

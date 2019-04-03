@@ -11,16 +11,14 @@ public class LuxSensor extends Sensor {
 
 	/* Constants */
 
-	public LuxSensor(XBeeAddress64 address64r, String nameProbeR, ZNetRxIoSampleResponse pinProbeR) {
-		super(address64r, nameProbeR, pinProbeR);
+	public LuxSensor(XBeeAddress64 address64r, String nameProbeR, ZNetRxIoSampleResponse samplesR) {
+		super(address64r, nameProbeR, samplesR);
 	}
-
 
 	// TODO Replace with the serial port where your receiver module is connected.
 	private static final String PORT = "ttyUSB0";
 	// TODO Replace with the baud rate of you receiver module.
 	private static final int BAUD_RATE = 9600;
-
 
 	public void initialize() {
 		try {
