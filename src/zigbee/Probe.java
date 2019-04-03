@@ -46,5 +46,9 @@ public class Probe {
 		return samples.isD0On();
 
 	}
+	
+	public int voltReceived() {
+		return samples.getAnalog0();
+	}
 
 }
