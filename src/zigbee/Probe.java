@@ -53,11 +53,16 @@ public class Probe {
 
 	public int getLumens() {
 		/*
-		 * RL=500/lux V0=5*(RL/(RL+R)) V0=LDR_value*ADC_value lux=(250/V0)-50
+		 * RL=500/lux
+		 * V0=5*(RL/(RL+R))
+		 * V0=LDR_value*ADC_value
+		 * lux=(250/V0)-50
 		 */
 		if (voltReceived() != 0) {
 			return (250 / voltReceived()) - 50;
 		}
+		System.out.println(voltReceived());
+		System.out.println(getLumens());
 		return 0;
 	}
 
