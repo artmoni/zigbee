@@ -37,11 +37,11 @@ public class LuxSensor extends Sensor {
 						System.out.println("Digital D0 (pin 11) is " + (ioSample.isD0On() ? "on" : "off"));
 					}
 				} catch (XBeeTimeoutException ex) {
-					System.out.println("RESPONSE ERROR");
+					System.out.println("RESPONSE ERROR2");
 				}
 			}
 		} catch (XBeeException ex) {
-			System.out.println("CONNECTION ERROR");
+			System.out.println("CONNECTION ERROR2");
 		}
 	}
 }
