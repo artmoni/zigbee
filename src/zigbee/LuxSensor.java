@@ -1,23 +1,26 @@
 package zigbee;
 
 import com.rapplogic.xbee.api.ApiId;
+import com.rapplogic.xbee.api.XBeeAddress64;
 import com.rapplogic.xbee.api.XBeeException;
 import com.rapplogic.xbee.api.XBeeResponse;
 import com.rapplogic.xbee.api.XBeeTimeoutException;
 import com.rapplogic.xbee.api.zigbee.ZNetRxIoSampleResponse;
 
-public class LuxSensor extends Probe {
+public class LuxSensor extends Sensor {
 
 	/* Constants */
+
+	public LuxSensor(XBeeAddress64 address64r, String nameProbeR, ZNetRxIoSampleResponse pinProbeR) {
+		super(address64r, nameProbeR, pinProbeR);
+	}
+
 
 	// TODO Replace with the serial port where your receiver module is connected.
 	private static final String PORT = "ttyUSB0";
 	// TODO Replace with the baud rate of you receiver module.
 	private static final int BAUD_RATE = 9600;
 
-	public LuxSensor() {
-
-	}
 
 	public void initialize() {
 		try {
