@@ -59,7 +59,6 @@ public class Probe {
 		 * lux=(250/V0)-50
 		 */
 		System.out.println(voltReceived());
-		System.out.println(getLumens());
 		if (voltReceived() != 0) {
 			return (250 / voltReceived()) - 50;
 		}
