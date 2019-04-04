@@ -64,5 +64,9 @@ public class Probe {
 		}
 		return 0;
 	}
+	
+	public int getTemp() {
+		return samples.getAnalog1();
+	}
 
 }
