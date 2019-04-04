@@ -46,6 +46,13 @@ public class CentralStation {
 
 //						System.out.println("Received a sample from " + ioSample.getAnalog0());
 						Lumens = currentProbe.getLumens();
+						if (Lumens == 500) {
+							System.out.println("La luminosité ambiante est moyenne.");
+						} else if (Lumens == 10000) {
+							System.out.println("La luminosité ambiante est élevée.");
+						} else {
+							System.out.println("La luminosité ambiante est basse.");
+						}
 						System.out.println("Analog D0 (pin 20) 10-bit reading is " + Lumens);
 						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentProbe.getTemp());
 //						System.out.println("Digital D0 (pin 11) is " + (currentProbe.isButtonPressed() ? "on" : "off"));
