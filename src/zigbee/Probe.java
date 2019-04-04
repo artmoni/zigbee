@@ -47,7 +47,7 @@ public class Probe {
 
 	}
 
-	public int voltReceived() {
+	public int getVolts() {
 		return samples.getAnalog0();
 	}
 
@@ -58,13 +58,19 @@ public class Probe {
 		 * V0=LDR_value*ADC_value
 		 * lux=(250/V0)-50
 		 */
-		System.out.println(voltReceived());
-		if (voltReceived() != 0) {
-			return (250 / voltReceived()) - 50;
+		System.out.println(getVolts());
+		if (getVolts() != 0) {
+			if (getVolts() > 800) {
+				return 50;
+			} else if (getVolts() < 400) {
+				return 10000;
+			} else {
+				return 500;
+			}
 		}
 		return 0;
 	}
-	
+
 	public int getTemp() {
 		return samples.getAnalog1();
 	}
