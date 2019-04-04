@@ -3,6 +3,7 @@ package zigbee;
 import java.util.HashMap;
 
 import com.rapplogic.xbee.api.ApiId;
+import com.rapplogic.xbee.api.AtCommand;
 import com.rapplogic.xbee.api.XBee;
 import com.rapplogic.xbee.api.XBeeAddress64;
 import com.rapplogic.xbee.api.XBeeException;
@@ -43,8 +44,6 @@ public class CentralStation {
 
 						Probe currentProbe = myProbes.get(remoteAddress64);
 						currentProbe.update(ioSample);
-
-//						System.out.println("Received a sample from " + ioSample.getAnalog0());
 						Lumens = currentProbe.getLumens();
 						if (Lumens == 500) {
 							System.out.println("La luminosité ambiante est moyenne.");
@@ -53,9 +52,8 @@ public class CentralStation {
 						} else {
 							System.out.println("La luminosité ambiante est basse.");
 						}
-						System.out.println("Analog D0 (pin 20) 10-bit reading is " + Lumens);
 						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentProbe.getTemp());
-//						System.out.println("Digital D0 (pin 11) is " + (currentProbe.isButtonPressed() ? "on" : "off"));
+						xbee.sendAsynchronous(new AtCommand("D1", 3));
 					}
 				} catch (XBeeTimeoutException ex) {
 					System.out.println("RESPONSE ERROR");

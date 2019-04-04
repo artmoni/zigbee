@@ -58,7 +58,6 @@ public class Probe {
 		 * V0=LDR_value*ADC_value
 		 * lux=(250/V0)-50
 		 */
-		System.out.println(getVolts());
 		if (getVolts() != 0) {
 			if (getVolts() > 800) {
 				return 50;
