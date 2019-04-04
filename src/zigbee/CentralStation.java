@@ -53,7 +53,7 @@ public class CentralStation {
 							System.out.println("La luminosité ambiante est basse.");
 						}
 						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentProbe.getTemp());
-						xbee.sendAsynchronous(new AtCommand("D1", 3));
+						xbee.sendAsynchronous(new AtCommand("D1", 5));
 					}
 				} catch (XBeeTimeoutException ex) {
 					System.out.println("RESPONSE ERROR");
