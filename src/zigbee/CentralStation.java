@@ -10,6 +10,7 @@ import com.rapplogic.xbee.api.XBeeException;
 import com.rapplogic.xbee.api.XBeeResponse;
 import com.rapplogic.xbee.api.XBeeTimeoutException;
 import com.rapplogic.xbee.api.zigbee.ZNetRxIoSampleResponse;
+import com.rapplogic.xbee.api.zigbee.ZNetRxResponse;
 
 public class CentralStation {
 
@@ -54,6 +55,10 @@ public class CentralStation {
 						}
 						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentProbe.getTemp());
 						xbee.sendAsynchronous(new AtCommand("D1", 5));
+					}else if(true) {
+						ZNetRxResponse response2 = (ZNetRxResponse)response;
+						response2.getRemoteAddress64();
+						System.out.println(response2.getRemoteAddress64());
 					}
 				} catch (XBeeTimeoutException ex) {
 					System.out.println("RESPONSE ERROR");

@@ -52,12 +52,6 @@ public class Probe {
 	}
 
 	public int getLumens() {
-		/*
-		 * RL=500/lux
-		 * V0=5*(RL/(RL+R))
-		 * V0=LDR_value*ADC_value
-		 * lux=(250/V0)-50
-		 */
 		if (getVolts() != 0) {
 			if (getVolts() > 800) {
 				return 50;
