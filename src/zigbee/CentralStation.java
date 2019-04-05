@@ -43,9 +43,8 @@ public class CentralStation {
 						}
 
 						Probe currentProbe = myProbes.get(remoteAddress64);
-						LuxSensor currentLuxSensor = (LuxSensor) myProbes.get(remoteAddress64);
 						currentProbe.update(ioSample);
-						Lumens = currentLuxSensor.getLumens();
+						Lumens = currentProbe.getLumens();
 						if (Lumens == 500) {
 							System.out.println("La luminosité ambiante est moyenne.");
 						} else if (Lumens == 10000) {
@@ -53,8 +52,7 @@ public class CentralStation {
 						} else {
 							System.out.println("La luminosité ambiante est basse.");
 						}
-						TempSensor currentTempSensor = (TempSensor) myProbes.get(remoteAddress64);
-						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentTempSensor.getTemp());
+						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentProbe.getTemp());
 						xbee.sendAsynchronous(new AtCommand("D1", 5));
 					}
 				} catch (XBeeTimeoutException ex) {

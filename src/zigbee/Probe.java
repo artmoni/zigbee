@@ -7,7 +7,7 @@ import com.rapplogic.xbee.api.zigbee.ZNetRxIoSampleResponse;
 public class Probe {
 	private XBeeAddress64 address64;
 	private String nameProbe;
-	protected ZNetRxIoSampleResponse samples;
+	private ZNetRxIoSampleResponse samples;
 
 	XBee xbee = new XBee();
 
@@ -46,4 +46,26 @@ public class Probe {
 		return samples.isD0On();
 
 	}
+
+	public int getVolts() {
+		return samples.getAnalog0();
+	}
+
+	public int getLumens() {
+		if (getVolts() != 0) {
+			if (getVolts() > 800) {
+				return 50;
+			} else if (getVolts() < 400) {
+				return 10000;
+			} else {
+				return 500;
+			}
+		}
+		return 0;
+	}
+
+	public int getTemp() {
+		return samples.getAnalog1();
+	}
+
 }
