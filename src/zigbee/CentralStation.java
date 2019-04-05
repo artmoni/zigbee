@@ -55,9 +55,9 @@ public class CentralStation {
 						}
 						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentProbe.getTemp());
 						//xbee.sendAsynchronous(new AtCommand("D1", 5));
-					}else if(true) {
+					} if(true) {
 						ZNetRxResponse response2 = (ZNetRxResponse)response;
-						//response2.getRemoteAddress64();
+						response2.getRemoteAddress64();
 						System.out.println(response2.getRemoteAddress64());
 					}
 				} catch (XBeeTimeoutException ex) {
