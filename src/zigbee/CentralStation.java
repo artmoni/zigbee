@@ -10,7 +10,6 @@ import com.rapplogic.xbee.api.XBeeException;
 import com.rapplogic.xbee.api.XBeeResponse;
 import com.rapplogic.xbee.api.XBeeTimeoutException;
 import com.rapplogic.xbee.api.zigbee.ZNetRxIoSampleResponse;
-import com.rapplogic.xbee.api.zigbee.ZNetRxResponse;
 
 public class CentralStation {
 
@@ -44,8 +43,9 @@ public class CentralStation {
 						}
 
 						Probe currentProbe = myProbes.get(remoteAddress64);
+						LuxSensor currentLuxSensor = (LuxSensor) myProbes.get(remoteAddress64);
 						currentProbe.update(ioSample);
-						Lumens = currentProbe.getLumens();
+						Lumens = currentLuxSensor.getLumens();
 						if (Lumens == 500) {
 							System.out.println("La luminosité ambiante est moyenne.");
 						} else if (Lumens == 10000) {
@@ -53,12 +53,9 @@ public class CentralStation {
 						} else {
 							System.out.println("La luminosité ambiante est basse.");
 						}
-						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentProbe.getTemp());
-						//xbee.sendAsynchronous(new AtCommand("D1", 5));
-					} if(true) {
-						ZNetRxResponse response2 = (ZNetRxResponse)response;
-						response2.getRemoteAddress64();
-						System.out.println(response2.getRemoteAddress64());
+						TempSensor currentTempSensor = (TempSensor) myProbes.get(remoteAddress64);
+						System.out.println("Analog D1 (pin 20) 10-bit reading is " + currentTempSensor.getTemp());
+						xbee.sendAsynchronous(new AtCommand("D1", 5));
 					}
 				} catch (XBeeTimeoutException ex) {
 					System.out.println("RESPONSE ERROR");

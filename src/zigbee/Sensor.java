@@ -9,4 +9,7 @@ abstract class Sensor extends Probe {
 		super(address64R, nameProbeR, samplesR);
 	}
 
+	public int getVolts() {
+		return samples.getAnalog0();
+	}
 }

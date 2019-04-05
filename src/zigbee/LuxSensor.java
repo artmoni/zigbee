@@ -11,4 +11,20 @@ public class LuxSensor extends Sensor {
 		super(address64r, nameProbeR, samplesR);
 	}
 
+	public int getVolts() {
+		return super.getVolts();
+	}
+
+	public int getLumens() {
+		if (getVolts() != 0) {
+			if (getVolts() > 800) {
+				return 50;
+			} else if (getVolts() < 400) {
+				return 10000;
+			} else {
+				return 500;
+			}
+		}
+		return 0;
+	}
 }
